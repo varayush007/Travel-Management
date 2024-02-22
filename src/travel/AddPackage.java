@@ -106,6 +106,7 @@ public class AddPackage extends JFrame {
         add(buttonPanel, BorderLayout.SOUTH);
     }
 
+
     //submission form to insert all data back to the travel_package db
     private void submitForm() {
         try (Connection connection = DriverManager.getConnection("jdbc:mysql:///travel", "root", "Ayush@lnmiit")) {

@@ -12,8 +12,8 @@ public class Dashboard extends JFrame {
         // Main Panel
         JPanel p1 = new JPanel();
         p1.setLayout(null);
-        p1.setBackground(Color.DARK_GRAY);
-        p1.setBounds(0, 0, 1600, 65);
+        p1.setBackground(Color.darkGray);
+        p1.setBounds(45, 10, 1200, 75);
         add(p1);
 
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/Dashboard.png"));
@@ -24,16 +24,52 @@ public class Dashboard extends JFrame {
         p1.add(icon);
 
         // Dashboard label
-        JLabel heading = new JLabel("DASHBOARD");
-        heading.setBounds(icon.getX() + icon.getWidth() + 5, 10, 300, 40);
+        JLabel heading = new JLabel("TRAVELBLISS");
+        heading.setBounds(icon.getX() + icon.getWidth() + 5, 12, 300, 40);
         heading.setForeground(Color.WHITE);
-        heading.setFont(new Font("Montserrat", Font.BOLD, 25));
+        heading.setFont(new Font("Montserrat", Font.BOLD, 30));
         p1.add(heading);
+
+        // Center Text
+        JLabel centerTextLine1 = new JLabel("Find your perfect getaway,");
+        centerTextLine1.setFont(new Font("Montserrat", Font.BOLD, 47));
+        centerTextLine1.setHorizontalAlignment(SwingConstants.CENTER);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        centerTextLine1.setBounds((screenSize.width - centerTextLine1.getPreferredSize().width) / 2,
+                (screenSize.height - centerTextLine1.getPreferredSize().height * 2) / 3,
+                centerTextLine1.getPreferredSize().width,
+                centerTextLine1.getPreferredSize().height);
+        add(centerTextLine1);
+
+        JLabel centerTextLine2 = new JLabel("minus the hassle");
+        centerTextLine2.setFont(new Font("Montserrat", Font.BOLD, 47));
+        centerTextLine2.setHorizontalAlignment(SwingConstants.CENTER);
+        centerTextLine2.setBounds((screenSize.width - centerTextLine2.getPreferredSize().width) / 2,
+                (screenSize.height - centerTextLine2.getPreferredSize().height * 2) / 3 + centerTextLine1.getPreferredSize().height,
+                centerTextLine2.getPreferredSize().width,
+                centerTextLine2.getPreferredSize().height);
+        add(centerTextLine2);
+
+        JButton bookPackageButton = new JButton("Book Package");
+        bookPackageButton.setBounds((screenSize.width - 200) / 2,
+                (screenSize.height - centerTextLine2.getPreferredSize().height) / 3 + centerTextLine2.getPreferredSize().height * 2,
+                200, 42);
+        bookPackageButton.setBackground(Color.getHSBColor(56,89,139));
+        bookPackageButton.setForeground(Color.black);
+        bookPackageButton.setFont(new Font("Montserrat", Font.PLAIN, 19));
+        bookPackageButton.addActionListener(e -> {
+            try {
+                openBookPackageWindow();
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        add(bookPackageButton);
 
         // Creating a dropdown button for Travel Packages
         JComboBox<String> travelDropdown = new JComboBox<>(new String[]{"Add Travel Package", "Book Travel Package", "View Travel Packages", "Delete Travel Package"});
         travelDropdown.setBounds(heading.getX() + heading.getWidth() + 5, heading.getY(), 230, 42);
-        travelDropdown.setBackground(Color.lightGray);
+        travelDropdown.setBackground(Color.getHSBColor(56,89,139));
         travelDropdown.setForeground(Color.black);
         travelDropdown.setFont(new Font("Montserrat", Font.PLAIN, 18));
         p1.add(travelDropdown);
@@ -60,7 +96,7 @@ public class Dashboard extends JFrame {
         // Destinations/Activities button - Add/view
         JComboBox<String> destDropdown = new JComboBox<>(new String[]{"Add Destination/Activities", "View Destinations/Activities"});
         destDropdown.setBounds(travelDropdown.getX() + travelDropdown.getWidth() + 5, heading.getY(), 280, 42);
-        destDropdown.setBackground(Color.lightGray);
+        destDropdown.setBackground(Color.getHSBColor(56,89,139));
         destDropdown.setForeground(Color.black);
         destDropdown.setFont(new Font("Montserrat", Font.PLAIN, 18));
         p1.add(destDropdown);
@@ -77,7 +113,7 @@ public class Dashboard extends JFrame {
         // Passengers button (Details of all passengers)
         JButton passengerListButton = new JButton("View All Passengers");
         passengerListButton.setBounds(destDropdown.getX() + destDropdown.getWidth() + 5, heading.getY(), 200, 42);
-        passengerListButton.setBackground(Color.lightGray);
+        passengerListButton.setBackground(Color.getHSBColor(56,89,139));
         passengerListButton.setForeground(Color.black);
         passengerListButton.setFont(new Font("Montserrat", Font.PLAIN, 18));
         passengerListButton.setMargin(new Insets(0, 0, 0, 0));
