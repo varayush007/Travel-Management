@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Travel Management Nymble:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Travel_Management_Nymble_jar</output-path>
+    <root id="archive" name="Travel Management Nymble.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="Travel Management Nymble" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/mysql-connector-java-8.0.28.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
